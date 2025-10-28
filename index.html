@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahil Vemuri - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sahil Vemuri</h1>
+        <p>Electrical & Computer Engineering Graduate Student</p>
+        <div class="contact-info">
+            <a href="mailto:sahil.vnv.1605@gmail.com">sahil.vnv.1605@gmail.com</a> |
+            <a href="tel:+17343120471">+1 (734) 312-0471</a> |
+            <a href="https://www.linkedin.com/in/sahilvemuri/" target="_blank">LinkedIn</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm a Master's student in Electrical and Computer Engineering at the University of Michigan with a strong foundation in computer architecture, parallel computing, and hardware design. My work spans from low-level RTL design and verification to high-performance computing optimizations using CUDA and compiler technologies.</p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <div class="title-row">
+                    <h3>University of Michigan</h3>
+                    <span class="date">2024 – 2026</span>
+                </div>
+                <div class="subtitle">Master of Science, Electrical and Computer Engineering | GPA: 3.5/4.0</div>
+                <div class="location">Ann Arbor, MI</div>
+                <ul>
+                    <li><strong>Relevant Coursework:</strong> Computer Architecture, Parallel Computer Architecture, Parallel Computing, Advanced Compilers</li>
+                </ul>
+            </div>
+
+            <div class="education-item">
+                <div class="title-row">
+                    <h3>Osmania University</h3>
+                    <span class="date">2020 – 2024</span>
+                </div>
+                <div class="subtitle">Bachelor of Engineering, Electrical and Communication Engineering | GPA: 3.9/4.0</div>
+                <div class="location">Hyderabad, India</div>
+                <ul>
+                    <li>Recipient of academic merit award for exceptional performance for the year 2023-24</li>
+                    <li>Leadership: Division Vice-President – Street Cause NGO, Core team lead – Google Developer Student Club</li>
+                    <li><strong>Relevant Coursework:</strong> VLSI Design, Advanced System Design, FPGA based System Design, Design Verification, Digital Design, Operating Systems, Computer Architecture</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <strong>Languages</strong>
+                    C, C++, Python, CUDA, MATLAB
+                </div>
+                <div class="skill-category">
+                    <strong>HDL</strong>
+                    Verilog, SystemVerilog, RTL Design
+                </div>
+                <div class="skill-category">
+                    <strong>Tools</strong>
+                    Synopsys (VCS, Verdi), Cadence (Virtuoso, Simvision), Make, Tcl, Git, Bash, Xilinx Vivado, Gem5, Keil μVision, Simulink, GDB
+                </div>
+                <div class="skill-category">
+                    <strong>Libraries/Frameworks</strong>
+                    SystemVerilog UVM, CUDA, OpenMP, OpenMPI, LLVM, Pthreads
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            
+            <div class="experience-item">
+                <div class="title-row">
+                    <h3>Research Associate</h3>
+                    <span class="date">May 2025 – Aug 2025</span>
+                </div>
+                <div class="subtitle">University of Michigan</div>
+                <div class="location">Ann Arbor, MI</div>
+                <ul>
+                    <li>Performed Molecular Dynamics simulations to evaluate thermal properties of candidate compounds for immersion cooling</li>
+                    <li>Parallelized the simulation codebase for NVIDIA GPUs using CUDA and OpenMPI, achieving an aggregate speedup of more than 20x</li>
+                    <li>Automated the end-to-end simulation pipeline using Makefiles and Tcl scripts</li>
+                    <li>Scaled the framework to support multiple concurrent simulations for high-throughput computation</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="title-row">
+                    <h3>Project Intern</h3>
+                    <span class="date">Sep 2023 – Dec 2023</span>
+                </div>
+                <div class="subtitle">Vaaluka Solutions</div>
+                <div class="location">Hyderabad, India</div>
+                <ul>
+                    <li>Developed an AXI Memory Controller for a larger SoC using SystemVerilog with 16 KB dual-port RAM module</li>
+                    <li>Enhanced memory access speeds via out-of-order burst handling supporting FIXED, INCR, and WRAP burst types</li>
+                    <li>Verified functionality with Unified Verification Methodology (UVM), achieving full functional coverage post-synthesis</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="project-item">
+                <h3>RISC-V ISA based Superscalar, Out-of-Order Processor</h3>
+                <ul>
+                    <li>Designed and implemented a 2-way Superscalar, Out of Order RISC-V processor with 8 functional units, 256 Byte I-cache, and 256 Byte D-cache</li>
+                    <li>Integrated advanced features including PAg Branch Predictor, Dual-Ported I-cache, Write-Back D-cache, Store Queue and Instruction Prefetching</li>
+                    <li>Achieved a synthesizable design with an average CPI of 3.16 and minimum clock period of 10 ns over 37 test programs</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <h3>Adaptive Coherence for Unified CPU-GPU Systems</h3>
+                <ul>
+                    <li>Investigated and integrated coherence models such as MESI, MOESI, and VIPER for CPU-GPU heterogenous systems</li>
+                    <li>Simulated and analyzed CPU-GPU unified memory performance using Gem5, measuring efficiency gains over traditional cache coherence mechanisms</li>
+                    <li>Optimized techniques for improving memory access coordination in heterogeneous computing environments</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <h3>Frequent Path Loop Invariant Code Motion (FPLICM) Optimization</h3>
+                <ul>
+                    <li>Implemented an LLVM compiler pass to extend traditional LICM by speculatively hoisting "almost invariant" instructions</li>
+                    <li>Added repair mechanisms on infrequent paths to maintain correctness</li>
+                    <li>Reduced dynamic instruction counts and achieved measurable speedups across benchmark programs</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Sahil Vemuri. All rights reserved.</p>
+    </footer>
+</body>
+</html>
