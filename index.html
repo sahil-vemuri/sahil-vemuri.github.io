@@ -4,189 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sahil Vemuri — Portfolio</title>
-    <meta name="description" content="Sahil Vemuri — Computer architecture, parallel computing, and hardware design.">
+    <meta name="description" content="Sahil Vemuri — Computer architecture, parallel computing, and hardware design. A portfolio styled like the Jazz Jackrabbit 2 menu.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- The sky: gradient + stars (night) + drifting clouds + horizon haze -->
-    <div class="sky" aria-hidden="true">
+    <!-- ===================== Cartoon world background ===================== -->
+    <div class="world" aria-hidden="true">
+        <div class="sky"></div>
+        <div class="sun"></div>
         <div class="stars"></div>
-        <div class="sky-clouds"></div>
-        <div class="haze"></div>
+        <div class="grid"></div>
+        <div class="clouds"></div>
+        <div class="gems"></div>
+        <div class="hills hills-back"></div>
+        <div class="hills hills-front"></div>
+        <div class="ground"></div>
     </div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="flash" id="flash" aria-hidden="true"></div>
 
-    <!-- Floating day / night toggle -->
-    <button class="theme-toggle" aria-label="Toggle day and night" title="Toggle day / night">
-        <span class="toggle-icon">☀️</span>
+    <!-- ===================== Sound toggle ===================== -->
+    <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">
+        <span class="sound-on">🔊</span><span class="sound-off">🔇</span>
     </button>
 
-    <!-- Side progress dots -->
-    <nav class="progress" aria-label="Section progress"></nav>
+    <!-- ===================== Main menu ===================== -->
+    <main class="menu-screen" id="menuScreen">
+        <div class="logo">
+            <div class="logo-kicker">◆ PLAYER ONE ◆</div>
+            <h1 class="logo-title" id="logoTitle">SAHIL VEMURI</h1>
+            <div class="logo-sub" id="logoSub">▶ SELECT A SECTION ◀</div>
+        </div>
 
-    <!-- The stage holds one visible view at a time -->
-    <main class="stage">
+        <nav class="menu" id="menu" aria-label="Portfolio sections"></nav>
 
-        <!-- HOME / intro -->
-        <section class="view active" id="view-home" data-view="home">
-            <div class="home-inner">
-                <p class="hello">Hello, I'm</p>
-                <h1 class="name">Sahil Vemuri</h1>
-                <p class="tagline">Computer Architecture · Parallel Computing · Hardware Design</p>
-                <div class="contact-info">
-                    <a href="mailto:sahil.vnv.1605@gmail.com">sahil.vnv.1605@gmail.com</a>
-                    <a href="tel:+17343120471">+1 (734) 312-0471</a>
-                    <a href="https://www.linkedin.com/in/sahilvemuri/" target="_blank" rel="noopener">LinkedIn</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT -->
-        <section class="view" id="view-about" data-view="about" hidden>
-            <div class="card">
-                <h2>About Me</h2>
-                <p>I'm a Master's student in Electrical and Computer Engineering at the University of Michigan with a strong foundation in computer architecture, parallel computing, and hardware design. My work spans from low-level RTL design and verification to high-performance computing optimizations using CUDA and compiler technologies.</p>
-            </div>
-        </section>
-
-        <!-- SKILLS -->
-        <section class="view" id="view-skills" data-view="skills" hidden>
-            <div class="card">
-                <h2>Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <strong>Languages</strong>
-                        C, C++, Python, CUDA, MATLAB
-                    </div>
-                    <div class="skill-category">
-                        <strong>HDL</strong>
-                        Verilog, SystemVerilog, RTL Design
-                    </div>
-                    <div class="skill-category">
-                        <strong>Tools</strong>
-                        Synopsys (VCS, Verdi), Cadence (Virtuoso, Simvision), Make, Tcl, Git, Bash, Xilinx Vivado, Gem5, GDB
-                    </div>
-                    <div class="skill-category">
-                        <strong>Libraries/Frameworks</strong>
-                        SystemVerilog UVM, CUDA, OpenMP, OpenMPI, LLVM, Pthreads
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- EXPERIENCE -->
-        <section class="view" id="view-experience" data-view="experience" hidden>
-            <div class="card">
-                <h2>Experience</h2>
-
-                <div class="experience-item">
-                    <div class="title-row">
-                        <h3>Research Associate</h3>
-                        <span class="date">May 2025 – Aug 2025</span>
-                    </div>
-                    <div class="subtitle">University of Michigan</div>
-                    <div class="location">Ann Arbor, MI</div>
-                    <ul>
-                        <li>Performed Molecular Dynamics simulations to evaluate thermal properties of candidate compounds for immersion cooling</li>
-                        <li>Parallelized the simulation codebase for NVIDIA GPUs using CUDA and OpenMPI, achieving an aggregate speedup of more than 20x</li>
-                        <li>Automated the end-to-end simulation pipeline using Makefiles and Tcl scripts</li>
-                        <li>Scaled the framework to support multiple concurrent simulations for high-throughput computation</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="title-row">
-                        <h3>Project Intern</h3>
-                        <span class="date">Sep 2023 – Dec 2023</span>
-                    </div>
-                    <div class="subtitle">Vaaluka Solutions</div>
-                    <div class="location">Hyderabad, India</div>
-                    <ul>
-                        <li>Developed an AXI Memory Controller for a larger SoC using SystemVerilog with 16 KB dual-port RAM module</li>
-                        <li>Enhanced memory access speeds via out-of-order burst handling supporting FIXED, INCR, and WRAP burst types</li>
-                        <li>Verified functionality with Unified Verification Methodology (UVM), achieving full functional coverage post-synthesis</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section class="view" id="view-projects" data-view="projects" hidden>
-            <div class="card">
-                <h2>Projects</h2>
-
-                <div class="project-item">
-                    <h3>RISC-V ISA based Superscalar, Out-of-Order Processor</h3>
-                    <ul>
-                        <li>Designed and implemented a 2-way Superscalar, Out of Order RISC-V processor with 8 functional units, 256 Byte I-cache, and 256 Byte D-cache</li>
-                        <li>Integrated advanced features including PAg Branch Predictor, Dual-Ported I-cache, Write-Back D-cache, Store Queue and Instruction Prefetching</li>
-                        <li>Achieved a synthesizable design with an average CPI of 3.16 and minimum clock period of 10 ns over 37 test programs</li>
-                    </ul>
-                </div>
-
-                <div class="project-item">
-                    <h3>Adaptive Coherence for Unified CPU-GPU Systems</h3>
-                    <ul>
-                        <li>Investigated and integrated coherence models such as MESI, MOESI, and VIPER for CPU-GPU heterogenous systems</li>
-                        <li>Simulated and analyzed CPU-GPU unified memory performance using Gem5, measuring efficiency gains over traditional cache coherence mechanisms</li>
-                        <li>Optimized techniques for improving memory access coordination in heterogeneous computing environments</li>
-                    </ul>
-                </div>
-
-                <div class="project-item">
-                    <h3>Frequent Path Loop Invariant Code Motion (FPLICM) Optimization</h3>
-                    <ul>
-                        <li>Implemented an LLVM compiler pass to extend traditional LICM by speculatively hoisting "almost invariant" instructions</li>
-                        <li>Added repair mechanisms on infrequent paths to maintain correctness</li>
-                        <li>Reduced dynamic instruction counts and achieved measurable speedups across benchmark programs</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- EDUCATION -->
-        <section class="view" id="view-education" data-view="education" hidden>
-            <div class="card">
-                <h2>Education</h2>
-
-                <div class="education-item">
-                    <div class="title-row">
-                        <h3>University of Michigan</h3>
-                        <span class="date">2024 – 2026</span>
-                    </div>
-                    <div class="subtitle">Master of Science, Electrical and Computer Engineering</div>
-                    <div class="location">Ann Arbor, MI</div>
-                    <ul>
-                        <li><strong>Relevant Coursework:</strong> Computer Architecture, Parallel Computer Architecture, Parallel Computing, Advanced Compilers</li>
-                    </ul>
-                </div>
-
-                <div class="education-item">
-                    <div class="title-row">
-                        <h3>Osmania University</h3>
-                        <span class="date">2020 – 2024</span>
-                    </div>
-                    <div class="subtitle">Bachelor of Engineering, Electrical and Communication Engineering</div>
-                    <div class="location">Hyderabad, India</div>
-                    <ul>
-                        <li>Recipient of academic merit award for exceptional performance for the year 2023-24</li>
-                        <li>Leadership: Division Vice-President – Street Cause NGO, Core team lead – Google Developer Student Club</li>
-                        <li><strong>Relevant Coursework:</strong> VLSI Design, Advanced System Design, FPGA based System Design, Design Verification, Digital Design, Operating Systems, Computer Architecture</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
+        <div class="menu-hint">
+            <span>↑ ↓ to move</span><span>ENTER / click to select</span>
+        </div>
     </main>
 
-    <!-- Cloud curtain used for the scroll transition between views -->
-    <div class="curtain" aria-hidden="true">
-        <div class="curtain-fill"></div>
-        <div class="puffs"></div>
+    <!-- ===================== Detail screen ===================== -->
+    <div class="screen" id="screen" aria-live="polite">
+        <button class="back-btn" id="backBtn" aria-label="Back to menu">◀ BACK</button>
+        <div class="screen-panel">
+            <div class="panel-inner">
+
+                <!-- BLOGS -->
+                <section class="section" data-key="blogs">
+                    <h2 class="section-title">Blogs</h2>
+                    <div class="coming-soon">
+                        <div class="cs-icon">✍️</div>
+                        <p class="cs-main">Posts are loading&hellip;</p>
+                        <p class="cs-sub">Notes on hardware, rendering, and the random stuff I get into are on the way. Check back soon.</p>
+                    </div>
+                </section>
+
+                <!-- PROJECTS -->
+                <section class="section" data-key="projects">
+                    <h2 class="section-title">Projects</h2>
+
+                    <article class="proj">
+                        <h3>Dynamic Parallelized Ray Tracing for High-Performance Rendering</h3>
+                        <ul>
+                            <li>Developed a distributed ray tracing engine featuring an Adaptive Load Balancing algorithm to improve rendering performance in complex 3D scenes.</li>
+                            <li>Implemented a dynamic feedback loop that tracks rendering times per image block and automatically adjusts block boundaries, distributing smaller workloads to heavily loaded compute nodes.</li>
+                            <li>Evaluated the engine across 4, 8, and 16 distributed nodes, achieving up to a 26% reduction in aggregate rendering time over multiple frames by leveraging temporal coherence.</li>
+                            <li>Analyzed parallel performance bottlenecks, identifying communication overhead and serial synchronization limits at higher node counts to inform future hybrid scaling strategies.</li>
+                        </ul>
+                    </article>
+
+                    <article class="proj">
+                        <h3>RISC-V ISA based Superscalar, Out-of-Order Processor</h3>
+                        <ul>
+                            <li>Designed, simulated and synthesized a 2-way Superscalar, Out-of-Order RISC-V processor in SystemVerilog with 8 functional units, 256 Byte I-cache, and 256 Byte D-cache.</li>
+                            <li>Integrated several advanced features, including a PAg Branch Predictor, Dual-Ported I-cache, Write-Back D-cache, Store Queue and Instruction Prefetching.</li>
+                            <li>Conducted thorough unit testing and system debugging, achieving a synthesizable design with an average CPI of 2.61 and strictly compliant with RISC-V ISA standards across over 40 assorted Assembly and C test programs.</li>
+                        </ul>
+                    </article>
+                </section>
+
+                <!-- ABOUT -->
+                <section class="section" data-key="about">
+                    <h2 class="section-title">About</h2>
+                    <p class="lead">I'm a Master's student in Electrical &amp; Computer Engineering at the University of Michigan &mdash; into computer architecture, parallel computing, and hardware design.</p>
+                    <h3 class="mini-head">A few things I'm into</h3>
+                    <ul class="interests">
+                        <li><span class="ico">🎧</span> Music (listening)</li>
+                        <li><span class="ico">📚</span> Reading</li>
+                        <li><span class="ico">🍳</span> Cooking</li>
+                        <li><span class="ico">🏋️</span> Working out</li>
+                        <li><span class="ico">✨</span> Starting random new stuff</li>
+                        <li><span class="ico">🔧</span> Projects (mostly hardware)</li>
+                    </ul>
+                </section>
+
+                <!-- CONTACT -->
+                <section class="section" data-key="contact">
+                    <h2 class="section-title">Contact Me</h2>
+                    <p class="lead">Let's build something. Reach me here:</p>
+                    <div class="contact-links">
+                        <a href="https://www.linkedin.com/in/sahilvemuri/" target="_blank" rel="noopener">
+                            <span class="ico">💼</span> LinkedIn
+                        </a>
+                        <a href="mailto:sahil.vnv.1605@gmail.com">
+                            <span class="ico">✉️</span> Email
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+        <div class="screen-hint">ESC to go back</div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=jj2-1"></script>
 </body>
 </html>
